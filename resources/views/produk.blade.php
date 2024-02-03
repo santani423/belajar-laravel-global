@@ -1,6 +1,7 @@
 <x-Template title="Produk">
     @slot('body')
-    <img src="https://www.blibli.com/friends-backend/wp-content/uploads/2023/03/B300234-Cover-Fakta-Burung-Beo.jpg"
-        alt="" width="500">
+    <a href="{{route('product.create')}}">
+        <button class="btn btn-primary">Tambah Product</button>
+    </a>
     @endslot
 </x-Template>
