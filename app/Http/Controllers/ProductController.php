@@ -29,7 +29,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product;
+        $product->nama = $request->nama;
+        $product->harga = $request->harga;
+        $product->stok = $request->stok;
+        $product->save();
+
+        dd($product);
+
     }
 
     /**
