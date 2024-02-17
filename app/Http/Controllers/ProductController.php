@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return Product::get();
     }
 
     /**
@@ -35,7 +35,7 @@ class ProductController extends Controller
         $product->stok = $request->stok;
         $product->save();
 
-        dd($product);
+        return redirect(route('produk'))->with(['success' => "Produk  $product->nama  berhasil di simpan"]);
 
     }
 
@@ -50,24 +50,34 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = Product::find($id);
+
+        return view('product.edit', compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->nama = $request->nama;
+        $product->harga = $request->harga;
+        $product->stok = $request->stok;
+        $product->save();
+        return redirect(route('produk'))->with(['success' => "Produk  $product->nama  berhasil di ubah"]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $nama = $product->nama;
+        $product->delete();
+        return redirect(route('produk'))->with(['success' => "Produk  $nama  berhasil di hapus"]);
     }
 }

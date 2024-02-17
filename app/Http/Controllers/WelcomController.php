@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class WelcomController extends Controller
 {
@@ -22,6 +23,8 @@ class WelcomController extends Controller
        function produk()
        {
               $title = "Produk";
-              return view("produk", compact('title'));
+              $produk = Product::get();
+              // dd($produk);
+              return view("produk", compact('title', 'produk'));
        }
 }
