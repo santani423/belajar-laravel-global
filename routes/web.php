@@ -8,7 +8,7 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [WelcomController::class, 'index'])->name('home');
 Route::get('/produk', [WelcomController::class, 'produk'])->name('produk');
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 // routing product
 Route::get('/product', [ProductController::class, 'create'])->name('product.create');
