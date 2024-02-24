@@ -11,4 +11,9 @@ class RegisController extends Controller
     {
         return view('registrasi');
     }
+
+    function store(Request $request)
+    {
+        dd($request);
+    }
 }
