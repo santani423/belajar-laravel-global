@@ -38,12 +38,19 @@
                                 <li class="nav-item">
                                     <a class="nav-link" aria-current="page" href="#">Profile</a>
                                 </li>
+
+                                @if(Auth::user())
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('logout')}}">Logout</a>
+                                </li>
+                                @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('login')}}">Login</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('regis')}}">Register</a>
                                 </li>
+                                @endif
                             </ul>
                         </div>
                     </div>

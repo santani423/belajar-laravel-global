@@ -13,6 +13,8 @@ Route::get('/produk', [WelcomController::class, 'produk'])->name('produk');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'auth'])->name('login.auth');
 
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+
 Route::get('registrasi', [RegisController::class, 'index'])->name('regis');
 Route::post('registrasi', [RegisController::class, 'store'])->name('regis.store');
 
