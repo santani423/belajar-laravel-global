@@ -11,17 +11,19 @@
 
 <body>
     <div class="container">
-        <form>
+        <form action="{{route('login.auth')}}" method="post">
+            @csrf
             <div class="mb-3">
-                <label class="form-label">Email address</label>
-                <input type="email" class="form-control">
+                <label class="form-label">Email </label>
+                <input type="email" name="email" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-control">
+                <input type="password" name="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Login</button>
         </form>
+        <p>Belum punya akun? <a href="{{route('regis')}}">Registrasi</a></p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
