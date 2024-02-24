@@ -18,7 +18,11 @@
             <div class="card-body">
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
                     <div class="container-fluid">
+                        @if(Auth::User())
+                        <a class="navbar-brand" href="#">{{Auth::User()->name}}</a>
+                        @else
                         <a class="navbar-brand" href="#">Global</a>
+                        @endif
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                             aria-label="Toggle navigation">
