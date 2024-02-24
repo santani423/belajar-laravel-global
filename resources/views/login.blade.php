@@ -11,6 +11,11 @@
 
 <body>
     <div class="container">
+        @if($message = Session::get('error'))
+        <div class="alert alert-danger mx-2" role="alert">
+            {{Session::get('error')}}
+        </div>
+        @endif
         <form action="{{route('login.auth')}}" method="post">
             @csrf
             <div class="mb-3">

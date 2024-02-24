@@ -21,8 +21,8 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($data)) {
-            dd('login berhasil');
+            return redirect(route('home'));
         }
-        dd('login gagal');
+        return back()->with(["error" => "Email atau password anda salah"]);
     }
 }
