@@ -4,11 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WelcomController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RegisController;
+use App\Http\Controllers\LogoutController;
 
 
 Route::get('/', [WelcomController::class, 'index'])->name('home');
 Route::get('/produk', [WelcomController::class, 'produk'])->name('produk');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('registrasi', [RegisController::class, 'index'])->name('regis');
 
 // routing product
 Route::get('/product', [ProductController::class, 'create'])->name('product.create');
