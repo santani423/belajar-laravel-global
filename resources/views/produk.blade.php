@@ -49,6 +49,7 @@
                         <td>
                             <form action="{{route('keranjang.store')}}" method="post">
                             @csrf
+                            <input type="hidden" name="product_id" value="{{$prd->id}}">
                                 <input type="number" name="jumlah" class="form-control">
                                 <button type="submit" class="btn btn-primary">Tambah keranjang</button>
                             </form>
