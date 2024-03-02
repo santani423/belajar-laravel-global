@@ -30,6 +30,7 @@
                 <label class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" required>
             </div>
+
             <button type="submit" class="btn btn-primary">Registrasi</button>
         </form>
         <p>Sudah punya akun? <a href="{{route('login')}}">login</a></p>
