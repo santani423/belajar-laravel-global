@@ -7,9 +7,11 @@
     </div>
     @endif
     @if(Auth::user())
-    <a href="{{route('product.create')}}">
-        <button class="btn btn-primary">Tambah Product</button>
-    </a>
+        @if(Auth::user()->level == 'admin' or Auth::user()->level == 'Admin')
+            <a href="{{route('product.create')}}">
+                <button class="btn btn-primary">Tambah Product</button>
+            </a>
+         @endif
     @endif
     <table class="table table-striped">
         <thead>
@@ -24,24 +26,34 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($produk as $key =>$prd)
+            @foreach($produk as $key => $prd)
             <tr>
                 <td>{{++$key}}</td>
                 <td>{{$prd->nama}}</td>
                 <td>Rp.{{$prd->harga}}</td>
                 <td>{{$prd->stok}}</td>
                 @if(Auth::user())
+                    @if(Auth::user()->level == 'admin' or Auth::user()->level == 'Admin')
                 <td>
-                    <a href="{{route('product.edit',$prd->id)}}">
+                    <a href="{{route('product.edit', $prd->id)}}">
                         <button class="btn btn-primary mx-2">Ubah</button>
                     </a>
-                    <form action="{{route('product.delete',$prd->id)}}" method="post">
+                    <form action="{{route('product.delete', $prd->id)}}" method="post">
                         @csrf
                         @method('delete')
                         <button class="btn btn-danger mx-2">Hapus</button>
                     </form>
 
                 </td>
+                    @else
+                        <td>
+                            <form action="{{route('keranjang.store')}}" method="post">
+                            @csrf
+                                <input type="number" name="jumlah" class="form-control">
+                                <button type="submit" class="btn btn-primary">Tambah keranjang</button>
+                            </form>
+                        </td>
+                    @endif
                 @endif
             </tr>
             @endforeach

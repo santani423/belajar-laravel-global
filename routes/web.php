@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KeranjangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WelcomController;
@@ -25,5 +26,8 @@ Route::get('/product/{id}', [ProductController::class, 'edit'])->name('product.e
 Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
 Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.delete');
 
-Route::resource('keranjang', ProductController::class);
+
+
+// 
+Route::post('/keranjang', [KeranjangController::class, 'store'])->name('keranjang.store');
 
