@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Keranjang;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KeranjangController extends Controller
 {
@@ -29,7 +30,12 @@ class KeranjangController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $keranjang = new Keranjang;
+        $keranjang->product_id = $request->product_id;
+        $keranjang->jumlah = $request->jumlah;
+        $keranjang->user_id = Auth::user()->id;
+        $keranjang->save();
+
     }
 
     /**
