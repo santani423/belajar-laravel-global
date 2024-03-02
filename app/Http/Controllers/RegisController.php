@@ -26,6 +26,7 @@ class RegisController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->level = 'customer';
         $user->save();
         return redirect(route('login'));
     }
