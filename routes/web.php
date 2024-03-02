@@ -30,4 +30,5 @@ Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('pro
 
 // 
 Route::post('/keranjang', [KeranjangController::class, 'store'])->name('keranjang.store');
+Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang.index');
 

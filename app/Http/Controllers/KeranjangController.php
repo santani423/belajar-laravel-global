@@ -36,6 +36,8 @@ class KeranjangController extends Controller
         $keranjang->user_id = Auth::user()->id;
         $keranjang->save();
 
+        return redirect(route('keranjang.index'));
+
     }
 
     /**
